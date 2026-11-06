@@ -1,8 +1,13 @@
 import httpx
 
 class DataExtractor:
-    def __init__(self, base_url: str = "https://jsonplaceholder.typicode.com"):
+    def __init__(
+        self, 
+        base_url: str = "https://jsonplaceholder.typicode.com",
+        transport: httpx.BaseTransport | None = None,
+    ):
         self.base_url = base_url
+        self.transport = transport
 
     def fetch_posts(self) -> list[dict]:
         """
@@ -11,7 +16,7 @@ class DataExtractor:
         endpoint = f"{self.base_url}/posts"
         
         try:
-            with httpx.Client(timeout=10.0) as client:
+            with httpx.Client(timeout=10.0, transport=self.transport) as client:
                 response = client.get(endpoint)
                 response.raise_for_status()  # Raise an exception if there is an HTTP error (4xx or 5xx)
                 return response.json()

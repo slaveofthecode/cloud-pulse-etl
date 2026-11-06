@@ -1,0 +1,3 @@
+- Un JSON válido se convierte en RawRecordModel.
+- Si falta title, lanza ValidationError.
+- Si un campo obligatorio no tiene el tipo esperado, lanza ValidationError.

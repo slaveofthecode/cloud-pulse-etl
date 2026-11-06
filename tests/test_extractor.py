@@ -1,0 +1,3 @@
+- Respuesta 200 con una lista de posts: devuelve los datos correctamente.
+- Respuesta 500: lanza httpx.HTTPStatusError.
+- Error de red simulado: lanza httpx.RequestError.

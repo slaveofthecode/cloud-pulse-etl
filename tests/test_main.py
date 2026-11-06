@@ -1,0 +1,1 @@
+- Con monkeypatch, simular fetch_posts y comprobar que run_pipeline() valida y devuelve solo los primeros 5 registros.
